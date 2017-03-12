@@ -1,0 +1,27 @@
+# Android fstab file.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+# Currently we dont have e2fsck compiled. So fs check would failed.
+
+#<src>                                                <mnt_point>  <type>  <mnt_flags and options>                     <fs_mgr_flags>
+/data      ext4     /dev/block/mmcblk0p48     flags=encryptable=footer;length=-16384
+/cache     ext4     /dev/block/mmcblk0p39     flags=backup=1;wipeingui;wipeduringfactoryreset;flashimg=1
+/system    ext4     /dev/block/mmcblk0p16     flags=backup=1;wipeingui;flashimg=1
+/boot      emmc     /dev/block/mmcblk0p12     flags=backup=1;flashimg=1
+/recovery  emmc     /dev/block/mmcblk0p15     flags=backup=1;flashimg=1
+/firmware  emmc     /dev/block/mmcblk0p23     flags=display="Firmware";backup=1;flashimg=1
+/aboot     emmc     /dev/block/mmcblk0p12     flags=display="Bootloader";backup=1;flashimg=1
+/abootbak  emmc     /dev/block/mmcblk0p13     flags=display="Bootloader_Backup";backup=1;flashimg=1
+/splash    emmc     /dev/block/mmcblk0p31     flags=display="Splash";backup=1;flashimg=1
+/rpm       emmc     /dev/block/mmcblk0p5      flags=display="Rpm";backup=1;flashimg=1
+/tz        emmc     /dev/block/mmcblk0p3      flags=display="Tz";backup=1;flashimg=1
+/persist   ext4     /dev/block/mmcblk0p40     flags=display="Persist";backup=1;flashimg=1
+
+
+/usb-otg   vfat     /dev/block/sda1 /dev/block/sda             flags=display="usb-otg";storage;wipeingui;removable
+
+
+
+
+
